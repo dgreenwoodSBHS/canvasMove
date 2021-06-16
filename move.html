@@ -16,15 +16,22 @@
 
         var pXpos = 0;
         var pYpos = 0;
-        var pSize = 20;
+        var pSize = 50;
         var pXspeed = 5;
         var pYspeed = 5;
         
+        var player = new Image();
+        player.src = 'link.png';
+
         function mainloop(){
             colorRect(0,0,canvas.width,canvas.height,'black');
-            colorRect(pXpos,pYpos,pSize,pSize,'red');
+            drawImgs(player,pXpos,pYpos,pSize,pSize);
         }
         
+        function drawImgs(src,x,y,w,h){
+            canvasContext.drawImage(src,x,y,w,h);
+        }
+
         function colorRect(x,y,w,h,c){
             canvasContext.fillStyle = c;
             canvasContext.fillRect(x,y,w,h);
