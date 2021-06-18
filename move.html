@@ -13,11 +13,28 @@
             
             setInterval(mainloop, 1000/50);
         }
+
+        var pXpos = 0;
+        var pYpos = 0;
+        var dwidth = 50;
+        var dHeight = 60;
+        var sWidth = 32;
+        var sHeight = 42;
+        var pXspeed = 5;
+        var pYspeed = 5;
         
+        var player = new Image();
+        player.src = 'player.png';
+
         function mainloop(){
             colorRect(0,0,canvas.width,canvas.height,'black');
+            drawImgs(player,0,0,32,42,pXpos,pYpos,dwidth,dHeight);
         }
         
+        function drawImgs(src,sx,sy,sw,sh,dx,dy,dw,dh){
+            canvasContext.drawImage(src,sx,sy,sw,sh,dx,dy,dw,dh);
+        }
+
         function colorRect(x,y,w,h,c){
             canvasContext.fillStyle = c;
             canvasContext.fillRect(x,y,w,h);
